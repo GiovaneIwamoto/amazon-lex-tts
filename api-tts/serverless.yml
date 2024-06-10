@@ -1,0 +1,53 @@
+org:
+service: api-tts
+
+provider:
+  name: aws
+  runtime: python3.9
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "polly:SynthesizeSpeech"
+        - "s3:PutObject"
+        - "dynamodb:PutItem"
+        - "dynamodb:GetItem"
+      Resource: "*"
+  environment:
+    DYNAMODB_TABLE:
+    S3_BUCKET:
+
+functions:
+  health:
+    handler: src/handlers/health_handler.health
+    events:
+      - httpApi:
+          path: /
+          method: get
+  v1Description:
+    handler: src/handlers/description_handler.v1_description
+    events:
+      - httpApi:
+          path: /v1
+          method: get
+  v1TextToSpeech:
+    handler: src/handlers/tts_handler.v1_text_to_speech
+    events:
+      - httpApi:
+          path: /v1/tts
+          method: post
+
+resources:
+  Resources:
+    TTSAudioRecordsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:provider.environment.DYNAMODB_TABLE}
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
