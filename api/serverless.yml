@@ -13,8 +13,8 @@ provider:
         - "dynamodb:GetItem"
       Resource: "*"
   environment:
-    DYNAMODB_TABLE:
-    S3_BUCKET:
+    DYNAMODB_TABLE: text-to-speech-ticket
+    S3_BUCKET: <YOUR_S3>
 
 functions:
   health:
