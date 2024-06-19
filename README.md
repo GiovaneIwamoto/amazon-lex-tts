@@ -8,14 +8,6 @@ The Ticket Reservation Chatbot integrated with Slack offers the additional funct
 
 The API was developed with the following components and functionalities:
 
-1.  **Amazon Polly**: Used to convert text phrases into audio files.
-
-2.  **AWS S3**: Used to store the generated audio files.
-
-3.  **AWS DynamoDB**: Used to record the metadata of the audio files, ensuring idempotence by checking if an audio file has already been generated for a specific phrase.
-
-4.  **API Serverless**:
-
 - **Input Reception and Validation:** Receives a JSON payload containing a phrase and validates the input.
 - **Unique ID Generation:** Generates a unique identifier for the phrase using a hash function.
 - **Existence Check:** Checks DynamoDB to see if the audio for the phrase already exists.
