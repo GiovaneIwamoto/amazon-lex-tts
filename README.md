@@ -1,10 +1,10 @@
 # AMAZON LEX TTS CHATBOT WITH SLACK
 
-> ### **OVERVIEW**
+### **OVERVIEW**
 
 The Ticket Reservation Chatbot integrated with Slack offers the additional functionality of text-to-speech (TTS) conversion via a serverless API. Users can search for and book travel tickets directly within Slack, receiving responses in both text and audio for a more efficient user experience.
 
-> ### **API TTS**
+### **API TTS**
 
 The API was developed with the following components and functionalities:
 
@@ -29,12 +29,12 @@ Expected JSON Body Format for POST Request:
   }
 ```
 
-> ### **TICKET RESERVATION CHATBOT**
+### **TICKET RESERVATION CHATBOT**
 
 > [!NOTE]
 > The travel ticket reservation chatbot was developed using Amazon Lex and is integrated with Slack. It features text-to-speech (TTS) conversion functionality via a TTS API. Users can search for and book travel tickets directly within Slack, receiving responses in both text and audio for a more efficient user experience.
 
-> ### **TECHNICAL DETAILS**
+### **TECHNICAL DETAILS**
 
 - **Integration with Slack**: The bot is integrated with Slack, enabling direct interaction within the workspace environment.
 
@@ -44,13 +44,13 @@ Expected JSON Body Format for POST Request:
 
 ---
 
-> ### **PROJECT ARCHITECTURE**
+### **PROJECT ARCHITECTURE**
 
 ![Flow Architecture](assets/architecture.png)
 
 ---
 
-> ### **TECHNOLOGIES USED**
+### **TECHNOLOGIES USED**
 
 - Python: Utilized in conjunction with Serverless and Lambda.
 - Serverless Framework: For creating and managing the API.
@@ -61,7 +61,7 @@ Expected JSON Body Format for POST Request:
 
 ---
 
-> ### **HOW TO RUN THE APPLICATION**
+### **HOW TO RUN THE APPLICATION**
 
 #### SERVERLESS API TTS
 
@@ -102,6 +102,6 @@ Expected JSON Body Format for POST Request:
 > [!IMPORTANT]
 > Increase the Lambda function timeout by accessing the general settings and modifying it to 5 seconds. Ensure the necessary read permissions to the S3 bucket are granted to the IAM role associated with the Lambda function.
 
-> ### **AUTHORS**
+### **AUTHORS**
 
 [Adelson Teodoro](https://github.com/imrooteodoro) | [Giovane Iwamoto](https://github.com/GiovaneIwamoto) | [Gustavo Vasconcelos](https://github.com/GustavoSVasconcelos)
