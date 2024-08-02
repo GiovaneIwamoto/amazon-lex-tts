@@ -60,12 +60,14 @@ Expected JSON Body Format for POST Request:
 
 ### **TECHNOLOGIES USED**
 
-- Python: Utilized in conjunction with Serverless and Lambda.
-- Serverless Framework: For creating and managing the API.
-- AWS Lambda: Invoked by code hooks to consume the TTS API and send webhooks to Slack.
-- AWS Polly: For text-to-speech conversion.
-- Amazon Lex: For developing the chatbot.
-- Slack: For implementing the chatbot.
+```ruby
+'Python': Utilized in conjunction with Serverless and Lambda.
+'Serverless': For creating and managing the API.
+'AWS Lambda': Consume the TTS API and send webhooks to Slack.
+'AWS Polly': For text-to-speech conversion.
+'Amazon Lex': For developing the chatbot.
+'Slack': For implementing the chatbot.
+```
 
 ---
 
@@ -73,37 +75,35 @@ Expected JSON Body Format for POST Request:
 
 > SERVERLESS API TTS
 
-- In the _serverless.yml_ file, modify the `DYNAMODB_TABLE` and `S3_BUCKET` variables with the respective names of your DynamoDB table and S3 bucket.
+In the _serverless.yml_ file, modify the `DYNAMODB_TABLE` and `S3_BUCKET` variables with the respective names of your DynamoDB table and S3 bucket.
 
 > [!WARNING]
 > Pay close attention to the permissions and public visibility settings when creating the S3 bucket. Users in Slack can only access the audio converted by the TTS API if the objects in the bucket have public access, which goes against AWS recommendations regarding public access.
 
-- Install serverless framework `npm install -g serverless`.
+Install serverless framework `npm install -g serverless`.
 
-- Configure your AWS credentials managed by IAM:
+Configure your AWS credentials managed by IAM:
 
-  ```ruby
-  $ aws configure
-  AWS Access Key ID [None]: ACCESSKEYEXAMPLE
-  AWS Secret Access Key [None]: SECRETKEYEXAMPLE
-  Default region name [None]: us-east-1
-  Default output format [None]: ENTER
-  ```
+```ruby
+$ aws configure
+AWS Access Key ID [None]: ACCESSKEYEXAMPLE
+AWS Secret Access Key [None]: SECRETKEYEXAMPLE
+Default region name [None]: us-east-1
+Default output format [None]: ENTER
+```
 
-- Deploy the serverless application by running: `serverless deploy`.
+Deploy the serverless application by running: `serverless deploy`.
 
 > [!CAUTION]
 > Credentials should remain local to your environment only. Never expose your credentials in the README or any other part of the code.
 
 > CHATBOT AMAZON LEXV2
 
-- Import the zip file located in the `/bot` directory into Amazon Lex.
+Import the zip file located in the `/bot` directory into Amazon Lex.
 
 > LAMBDA CODE-HOOK
 
-- Create a new Lambda function in AWS, import the libs.zip file located in the `/aws` directory, and add the `lambda_function.py` file to the root of the Lambda.
-
-- Link the created function in Amazon Lex as the function to be invoked for Fulfillment.
+Create a new Lambda function in AWS, import the libs.zip file located in the `/aws` directory, and add the `lambda_function.py` file to the root of the Lambda. Link the created function in Amazon Lex as the function to be invoked for Fulfillment.
 
 > [!IMPORTANT]
 > Increase the Lambda function timeout by accessing the general settings and modifying it to 5 seconds. Ensure the necessary read permissions to the S3 bucket are granted to the IAM role associated with the Lambda function.
