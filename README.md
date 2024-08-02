@@ -4,6 +4,8 @@
 
 The Ticket Reservation Chatbot integrated with Slack offers the additional functionality of text-to-speech (TTS) conversion via a serverless API. Users can search for and book travel tickets directly within Slack, receiving responses in both text and audio for a more efficient user experience.
 
+[![Icons](https://skillicons.dev/icons?i=aws,py,bots,postman&theme=dark)](https://skillicons.dev)
+
 ---
 
 ### **PROJECT ARCHITECTURE**
@@ -31,10 +33,10 @@ The API was developed with the following components and functionalities:
 
 Expected JSON Body Format for POST Request:
 
-```
-  {
-    "phrase": "Example Phrase for Audio Conversion"
-  }
+```json
+{
+  "phrase": "Example Phrase for Audio Conversion"
+}
 ```
 
 ---
@@ -69,9 +71,7 @@ Expected JSON Body Format for POST Request:
 
 ### **HOW TO RUN THE APPLICATION**
 
-#### SERVERLESS API TTS
-
-- Navigate to the API directory by executing: `cd api`.
+> SERVERLESS API TTS
 
 - In the _serverless.yml_ file, modify the `DYNAMODB_TABLE` and `S3_BUCKET` variables with the respective names of your DynamoDB table and S3 bucket.
 
@@ -82,7 +82,7 @@ Expected JSON Body Format for POST Request:
 
 - Configure your AWS credentials managed by IAM:
 
-  ```
+  ```ruby
   $ aws configure
   AWS Access Key ID [None]: ACCESSKEYEXAMPLE
   AWS Secret Access Key [None]: SECRETKEYEXAMPLE
@@ -95,11 +95,11 @@ Expected JSON Body Format for POST Request:
 > [!CAUTION]
 > Credentials should remain local to your environment only. Never expose your credentials in the README or any other part of the code.
 
-#### CHATBOT AMAZON LEXV2
+> CHATBOT AMAZON LEXV2
 
 - Import the zip file located in the `/bot` directory into Amazon Lex.
 
-#### LAMBDA CODE-HOOK
+> LAMBDA CODE-HOOK
 
 - Create a new Lambda function in AWS, import the libs.zip file located in the `/aws` directory, and add the `lambda_function.py` file to the root of the Lambda.
 
