@@ -4,7 +4,7 @@
 
 The Ticket Reservation Chatbot integrated with Slack offers the additional functionality of text-to-speech (TTS) conversion via a serverless API. Users can search for and book travel tickets directly within Slack, receiving responses in both text and audio for a more efficient user experience.
 
-[![Icons](https://skillicons.dev/icons?i=aws,py,bots,postman&theme=dark)](https://skillicons.dev)
+[![Icons](https://skillicons.dev/icons?i=aws,py,dynamodb,bots,postman&theme=dark)](https://skillicons.dev)
 
 ---
 
@@ -58,22 +58,7 @@ Expected JSON Body Format for POST Request:
 
 ---
 
-### **TECHNOLOGIES USED**
-
-```ruby
-'Python': Utilized in conjunction with Serverless and Lambda.
-'Serverless': For creating and managing the API.
-'AWS Lambda': Consume the TTS API and send webhooks to Slack.
-'AWS Polly': For text-to-speech conversion.
-'Amazon Lex': For developing the chatbot.
-'Slack': For implementing the chatbot.
-```
-
----
-
-### **HOW TO RUN THE APPLICATION**
-
-> SERVERLESS API TTS
+### **CONFIGURE SERVERLESS**
 
 In the _serverless.yml_ file, modify the `DYNAMODB_TABLE` and `S3_BUCKET` variables with the respective names of your DynamoDB table and S3 bucket.
 
@@ -94,14 +79,14 @@ Default output format [None]: ENTER
 
 Deploy the serverless application by running: `serverless deploy`.
 
-> [!CAUTION]
-> Credentials should remain local to your environment only. Never expose your credentials in the README or any other part of the code.
+---
 
-> CHATBOT AMAZON LEXV2
+### **CONFIGURE AMAZON LEX**
 
 Import the zip file located in the `/bot` directory into Amazon Lex.
 
-> LAMBDA CODE-HOOK
+> [!CAUTION]
+> Credentials should remain local to your environment only. Never expose your credentials in the README or any other part of the code.
 
 Create a new Lambda function in AWS, import the libs.zip file located in the `/aws` directory, and add the `lambda_function.py` file to the root of the Lambda. Link the created function in Amazon Lex as the function to be invoked for Fulfillment.
 
@@ -113,3 +98,7 @@ Create a new Lambda function in AWS, import the libs.zip file located in the `/a
 ### **AUTHORS**
 
 [Adelson Teodoro](https://github.com/imrooteodoro) | [Giovane Iwamoto](https://github.com/GiovaneIwamoto) | [Gustavo Vasconcelos](https://github.com/GustavoSVasconcelos)
+
+Giovane Hashinokuti Iwamoto - Computer Science student at UFMS - Brazil - MS
+
+I am always open to receiving constructive criticism and suggestions for improvement in my developed code. I believe that feedback is an essential part of the learning and growth process, and I am eager to learn from others and make my code the best it can be. Whether it's a minor tweak or a major overhaul, I am willing to consider all suggestions and implement the changes that will benefit my code and its users.
