@@ -4,7 +4,7 @@
 
 The Ticket Reservation Chatbot integrated with Slack offers the additional functionality of text-to-speech (TTS) conversion via a serverless API. Users can search for and book travel tickets directly within Slack, receiving responses in both text and audio for a more efficient user experience.
 
-[![Icons](https://skillicons.dev/icons?i=aws,py,dynamodb,bots,postman&theme=dark)](https://skillicons.dev)
+[![Icons](https://skillicons.dev/icons?i=aws,py,dynamodb,theme=dark)](https://skillicons.dev)
 
 ---
 
